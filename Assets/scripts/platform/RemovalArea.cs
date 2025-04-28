@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
 public class RemovalArea : MonoBehaviour
 {
     [SerializeField] private ColorChanger _colorChanger;
@@ -9,8 +10,17 @@ public class RemovalArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+
+        Cube cube = collider.GetComponent<Cube>();
+        
+        if(cube.IsReleased)
+            return;
+
         float delay = Random.Range(_minTimeToDestroy, _maxTimeToDestroy);
-        _colorChanger.SetRandomMaterial(collider.gameObject);
-        _cubeSpawner.ReleaseWithDelay(collider.gameObject, delay, _colorChanger);
+        
+        cube.MarkReleased();
+
+        _colorChanger.SetRandomMaterial(cube);
+        StartCoroutine(_cubeSpawner.ReleaseWithDelay(cube, delay, _colorChanger));
     }
 }
