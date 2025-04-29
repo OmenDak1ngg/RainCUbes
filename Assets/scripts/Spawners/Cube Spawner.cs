@@ -19,7 +19,7 @@ public class CubeSpawner : MonoBehaviour
 
         _pool = new ObjectPool<Cube>(
            createFunc: () => Instantiate(_prefab),
-           actionOnGet: (cube) => ActionOnGet(cube),
+           actionOnGet: (cube) => ActivateCube(cube),
            actionOnRelease: (cube) => cube.gameObject.SetActive(false),
            actionOnDestroy: (cube) => Destroy(cube),
            collectionCheck: true,
@@ -32,7 +32,7 @@ public class CubeSpawner : MonoBehaviour
         InvokeRepeating(nameof(GetCube), 0.0f, _spawnRate);
     }
 
-    private void ActionOnGet(Cube cube)
+    private void ActivateCube(Cube cube)
     {
         cube.transform.position = new Vector3(
             Random.Range(_spawnAreaBounds.min.x, _spawnAreaBounds.max.x), _spawnArea.transform.position.y  ,0);

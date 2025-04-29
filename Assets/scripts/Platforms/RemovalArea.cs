@@ -10,17 +10,17 @@ public class RemovalArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+        if(collider.TryGetComponent<Cube>(out Cube cube))
+        {   
+            if(cube.IsBumped)
+                return;
 
-        Cube cube = collider.GetComponent<Cube>();
+            float delay = Random.Range(_minTimeToDestroy, _maxTimeToDestroy);
         
-        if(cube.IsReleased)
-            return;
+            cube.MarkReleased();
 
-        float delay = Random.Range(_minTimeToDestroy, _maxTimeToDestroy);
-        
-        cube.MarkReleased();
-
-        _colorChanger.SetRandomMaterial(cube);
-        StartCoroutine(_cubeSpawner.ReleaseWithDelay(cube, delay, _colorChanger));
+            _colorChanger.SetRandomMaterial(cube);
+            StartCoroutine(_cubeSpawner.ReleaseWithDelay(cube, delay, _colorChanger));
+        }
     }
 }

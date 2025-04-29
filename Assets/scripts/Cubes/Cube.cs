@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    public bool IsReleased { get; private set; }    
+    public bool IsBumped { get; private set; }    
 
     private void Awake()
     {
-        IsReleased = false;
+        IsBumped = false;
     }
 
     public void MarkReleased()
     {
-        IsReleased = true;
+        IsBumped = true;
     }
 
     public void UnmarkReleased()
     {
-        IsReleased = false;
+        IsBumped = false;
     }
 }
