@@ -153,6 +153,9 @@ MonoBehaviour:
   _poolCapacity: 10
   _poolMaxSize: 10
   _spawnRate: 0.5
+  _minTimeToDestroy: 2
+  _maxTimeToDestroy: 5
+  _colorChanger: {fileID: 2139255450}
 --- !u!4 &66056466
 Transform:
   m_ObjectHideFlags: 0
@@ -689,10 +692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452597bae2bd7874d804c35bbb33b1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorChanger: {fileID: 2139255450}
-  _cubeSpawner: {fileID: 66056465}
-  _minTimeToDestroy: 2
-  _maxTimeToDestroy: 5
 --- !u!65 &443622302
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -976,10 +975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452597bae2bd7874d804c35bbb33b1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorChanger: {fileID: 2139255450}
-  _cubeSpawner: {fileID: 66056465}
-  _minTimeToDestroy: 2
-  _maxTimeToDestroy: 5
 --- !u!65 &797339260
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1067,10 +1062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452597bae2bd7874d804c35bbb33b1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorChanger: {fileID: 2139255450}
-  _cubeSpawner: {fileID: 66056465}
-  _minTimeToDestroy: 0
-  _maxTimeToDestroy: 0
 --- !u!1 &1868459924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,10 +1107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452597bae2bd7874d804c35bbb33b1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorChanger: {fileID: 2139255450}
-  _cubeSpawner: {fileID: 66056465}
-  _minTimeToDestroy: 2
-  _maxTimeToDestroy: 5
 --- !u!65 &1868459927
 BoxCollider:
   m_ObjectHideFlags: 0
