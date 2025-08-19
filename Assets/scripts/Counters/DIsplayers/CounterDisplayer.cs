@@ -18,6 +18,11 @@ public class CounterDisplayer<T> : MonoBehaviour where T : MonoBehaviour
         _counter.CountIncreased -= UpdateCounter;
     }
 
+    private void Start()
+    {
+        UpdateCounter();
+    }
+
     private void UpdateCounter()
     {
         _counterText.text = $"{_counter.CountOfObjects}";

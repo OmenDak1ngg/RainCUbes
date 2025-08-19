@@ -29,6 +29,7 @@ public class Spawner<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void  OnObjectGet(T poolObject)
     {
+        ObjectGetted?.Invoke();
         poolObject.gameObject.SetActive(true);
     }
 
