@@ -3,10 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class SpawnArea : MonoBehaviour
 {
-    public Collider Collider { get; private set; }
+    [SerializeField] private Spawnpoint[] _spawnPoints;
 
-    private void Awake()
+    public Spawnpoint GetRandomSpawnpoint()
     {
-        Collider = GetComponent<Collider>();       
+        return _spawnPoints[Random.Range(0, _spawnPoints.Length)];
     }
 }

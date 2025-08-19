@@ -43,11 +43,16 @@ public class Cube : MonoBehaviour
         if (collider.TryGetComponent<RemovalArea>(out _))
         {
             StartCoroutine(InvokeReachedFloor());
+         
+            _isBumped = true;
         }
     }
 
     public IEnumerator InvokeReachedFloor()
     {
+        if (_isBumped)
+            yield break;
+
         _colorChanger.SetRandomMaterial();
         
         yield return new WaitForSeconds(_delay);
