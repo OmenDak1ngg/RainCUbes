@@ -44,28 +44,35 @@ public class Bomb : MonoBehaviour
             yield return null;
         }
 
-        foreach(Cube cube in FindExplodableObjects())
+        foreach(Collider collider in FindExplodableObjects())
         {
-            cube.Rigidbody.AddExplosionForce(_explotionForce, transform.position, _explotionRadius, 0f , ForceMode.Impulse);
+            collider.GetComponent<Rigidbody>().AddExplosionForce(_explotionForce, transform.position, _explotionRadius, 0f , ForceMode.Impulse);
         }
 
         BombExploded?.Invoke(this);
     }
 
-    private List<Cube> FindExplodableObjects()
+    private List<Collider> FindExplodableObjects()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, _explotionRadius);
 
-        List<Cube> cubes = new List<Cube>();
+        List<Collider> explodableObjects = new List<Collider>();
 
         foreach(Collider collider in colliders)
         {
-            if(collider.TryGetComponent<Cube>(out Cube cube) == false)
-                continue;
-
-            cubes.Add(cube);
+            if(collider.TryGetComponent<Cube>(out _) || collider.TryGetComponent<Bomb>(out _))
+                explodableObjects.Add(collider);
         }
 
-        return cubes;
+        return explodableObjects;
+    }
+
+    public void ResetAlpha()
+    {
+        Color currentColor = _renderer.material.color;
+
+        currentColor.a = 1f;
+
+        _renderer.material.color = currentColor;
     }
 }

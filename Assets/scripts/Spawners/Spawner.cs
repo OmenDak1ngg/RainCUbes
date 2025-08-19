@@ -9,7 +9,6 @@ public class Spawner<T> : MonoBehaviour where T : MonoBehaviour
     protected ObjectPool<T> Pool;
 
     public event Action ObjectGetted;
-    public event Action ObjectReleased;
 
     protected virtual void Start()
     {

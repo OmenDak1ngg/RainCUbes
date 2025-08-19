@@ -21,11 +21,12 @@ public class BombSpawner : Spawner<Bomb>
 
     private void GetBomb(Vector3 position)
     {
-        Bomb GettedBomb = Pool.Get();
 
-        GettedBomb.Detonate();
+        Bomb gettedBomb = Pool.Get();
 
-        GettedBomb.transform.position = position;
+        gettedBomb.Detonate();
+
+        gettedBomb.transform.position = position;
     }
 
     protected override Bomb OnInstantiateObject()
@@ -42,5 +43,12 @@ public class BombSpawner : Spawner<Bomb>
         base.OnDestroyObject(poolObject);
 
         poolObject.BombExploded -= ReleaseObject;
+    }
+
+    protected override void ReleaseObject(Bomb bomb)
+    {
+        base.ReleaseObject(bomb);
+        
+        bomb.ResetAlpha();
     }
 }
