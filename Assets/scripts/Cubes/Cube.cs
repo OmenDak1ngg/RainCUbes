@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
+[RequireComponent(typeof(Rigidbody))]
 public class Cube : MonoBehaviour
 {
     [SerializeField] private float _minDelay;

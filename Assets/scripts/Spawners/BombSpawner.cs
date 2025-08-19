@@ -4,16 +4,34 @@ public class BombSpawner : Spawner<Bomb>
 {
     [SerializeField] private CubeSpawner _cubeSpawner;
 
+    private void OnEnable()
+    {
+        _cubeSpawner.CubeReleased += GetBomb;
+    }
+
+    private void OnDisable()
+    {
+        _cubeSpawner.CubeReleased -= GetBomb;
+    }
+
     protected override void Start()
     {
         base.Start();
+    }
+
+    private void GetBomb(Vector3 position)
+    {
+        Bomb GettedBomb = Pool.Get();
+
+        GettedBomb.Detonate();
+
+        GettedBomb.transform.position = position;
     }
 
     protected override Bomb OnInstantiateObject()
     {
         Bomb newBomb = base.OnInstantiateObject();
 
-        _cubeSpawner.CubeReleased += GetBomb;
         newBomb.BombExploded += ReleaseObject;
 
         return newBomb;
@@ -24,14 +42,5 @@ public class BombSpawner : Spawner<Bomb>
         base.OnDestroyObject(poolObject);
 
         poolObject.BombExploded -= ReleaseObject;
-        _cubeSpawner.CubeReleased -= GetBomb;
     }
-
-    private void GetBomb(Vector3 position)
-    {
-        Bomb GettedBomb = Pool.Get();
-
-        GettedBomb.transform.position = position;
-    }
-
 }
