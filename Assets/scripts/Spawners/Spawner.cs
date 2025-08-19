@@ -46,5 +46,11 @@ public class Spawner<T> : MonoBehaviour where T : MonoBehaviour
     protected virtual void ReleaseObject(T poolObject)
     {
         Pool.Release(poolObject);
+        
+        if (poolObject.TryGetComponent<Rigidbody>(out Rigidbody rigidbody) == false)
+            return;
+
+        rigidbody.angularVelocity = Vector3.zero;
+        rigidbody.linearVelocity = Vector3.zero;
     }
 }

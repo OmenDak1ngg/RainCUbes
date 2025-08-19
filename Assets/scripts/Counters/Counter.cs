@@ -19,7 +19,7 @@ public class Counter<T> : MonoBehaviour where T : MonoBehaviour
         _spawner.ObjectGetted -= IncreaseCountOfObjects;
     }
 
-    private void Start()
+    private void Awake()
     {
         CountOfObjects = 0;
     }

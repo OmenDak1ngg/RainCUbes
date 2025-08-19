@@ -4,7 +4,7 @@ using UnityEngine;
 public class CounterDisplayer<T> : MonoBehaviour where T : MonoBehaviour
 {
 
-    [SerializeField] private TextMeshProUGUI _counterText;
+    [SerializeField] public TextMeshProUGUI _counterText;
 
     [SerializeField] private Counter<T> _counter;
 
@@ -18,7 +18,7 @@ public class CounterDisplayer<T> : MonoBehaviour where T : MonoBehaviour
         _counter.CountIncreased -= UpdateCounter;
     }
 
-    private void Start()
+    private void Awake()
     {
         UpdateCounter();
     }
