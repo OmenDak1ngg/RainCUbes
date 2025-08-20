@@ -9,6 +9,8 @@ public class Spawner<T> : MonoBehaviour where T : MonoBehaviour
     protected ObjectPool<T> Pool;
 
     public event Action ObjectGetted;
+    public event Action ObjectCreated;
+    public event Action ObjectReleased;
 
     protected virtual void Start()
     {
@@ -23,7 +25,8 @@ public class Spawner<T> : MonoBehaviour where T : MonoBehaviour
     protected virtual T OnInstantiateObject()
     {
         T newObject = Instantiate(_prefab);
-        
+        ObjectCreated?.Invoke();
+
         return newObject;
     }
 
@@ -36,6 +39,8 @@ public class Spawner<T> : MonoBehaviour where T : MonoBehaviour
     protected virtual void OnObjectRelease(T poolObject)
     {
         poolObject.gameObject.SetActive(false);
+
+        ObjectReleased?.Invoke();
     }
 
     protected virtual void OnDestroyObject(T poolObject)

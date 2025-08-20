@@ -4,18 +4,20 @@ using UnityEngine;
 public class CounterDisplayer<T> : MonoBehaviour where T : MonoBehaviour
 {
 
-    [SerializeField] public TextMeshProUGUI _counterText;
+    [SerializeField] public TextMeshProUGUI _spawnedObjectsText;
+    [SerializeField] public TextMeshProUGUI _createdObjectsText;
+    [SerializeField] public TextMeshProUGUI _activeObjectsText;
 
     [SerializeField] private Counter<T> _counter;
 
     private void OnEnable()
     {
-        _counter.CountIncreased += UpdateCounter;
+        _counter.CountUpdated += UpdateCounter;
     }
 
     private void OnDisable()
     {
-        _counter.CountIncreased -= UpdateCounter;
+        _counter.CountUpdated -= UpdateCounter;
     }
 
     private void Awake()
@@ -25,6 +27,8 @@ public class CounterDisplayer<T> : MonoBehaviour where T : MonoBehaviour
 
     private void UpdateCounter()
     {
-        _counterText.text = $"{_counter.CountOfObjects}";
+        _spawnedObjectsText.text = $"{_counter.CountOfSpawnedObjects}";
+        _createdObjectsText.text = $"{_counter.CountOfCreatedObjects}";
+        _activeObjectsText.text = $"{_counter.CountOfActiveObjects}";
     }
 }
