@@ -24,7 +24,7 @@ public class BombSpawner : Spawner<Bomb>
 
         Bomb gettedBomb = Pool.Get();
 
-        gettedBomb.Detonate();
+        gettedBomb.Explode();
 
         gettedBomb.transform.position = position;
     }
@@ -48,7 +48,5 @@ public class BombSpawner : Spawner<Bomb>
     protected override void ReleaseObject(Bomb bomb)
     {
         base.ReleaseObject(bomb);
-        
-        bomb.ResetAlpha();
     }
 }

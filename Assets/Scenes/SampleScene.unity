@@ -217,7 +217,6 @@ GameObject:
   - component: {fileID: 44444091}
   - component: {fileID: 44444094}
   - component: {fileID: 44444093}
-  - component: {fileID: 44444092}
   m_Layer: 5
   m_Name: counter
   m_TagString: Untagged
@@ -244,20 +243,6 @@ RectTransform:
   m_AnchoredPosition: {x: -332, y: 12}
   m_SizeDelta: {x: 171.59, y: 113.9}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &44444092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 44444090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66a05e45684f848bd86ece3567e9be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _counterText: {fileID: 44444093}
-  _counter: {fileID: 1910783479}
 --- !u!114 &44444093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,7 +580,6 @@ GameObject:
   - component: {fileID: 132482348}
   - component: {fileID: 132482350}
   - component: {fileID: 132482349}
-  - component: {fileID: 132482351}
   m_Layer: 5
   m_Name: counter
   m_TagString: Untagged
@@ -721,20 +705,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132482347}
   m_CullTransparentMesh: 1
---- !u!114 &132482351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 132482347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453f5c15bd7b5734cae4cfe25eeaf1cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _counterText: {fileID: 132482349}
-  _counter: {fileID: 1961011121}
 --- !u!1 &224098511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,6 +1869,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536290647}
   m_CullTransparentMesh: 1
+--- !u!1 &618411441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 618411442}
+  - component: {fileID: 618411443}
+  m_Layer: 5
+  m_Name: Cube Counter Displayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &618411442
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618411441}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 766326138}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &618411443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618411441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c66a05e45684f848bd86ece3567e9be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnedObjectsText: {fileID: 763342405}
+  _createdObjectsText: {fileID: 1874198842}
+  _activeObjectsText: {fileID: 44444093}
+  _counter: {fileID: 1910783479}
 --- !u!1 &730762014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,7 +1969,6 @@ GameObject:
   - component: {fileID: 763342404}
   - component: {fileID: 763342406}
   - component: {fileID: 763342405}
-  - component: {fileID: 763342407}
   m_Layer: 5
   m_Name: counter
   m_TagString: Untagged
@@ -2073,20 +2094,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763342403}
   m_CullTransparentMesh: 1
---- !u!114 &763342407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 763342403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66a05e45684f848bd86ece3567e9be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _counterText: {fileID: 763342405}
-  _counter: {fileID: 1910783479}
 --- !u!1 &766326137
 GameObject:
   m_ObjectHideFlags: 0
@@ -2121,6 +2128,7 @@ RectTransform:
   - {fileID: 1083648972}
   - {fileID: 1550720643}
   - {fileID: 730762015}
+  - {fileID: 618411442}
   m_Father: {fileID: 1277965915}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2243,7 +2251,6 @@ GameObject:
   - component: {fileID: 859939366}
   - component: {fileID: 859939369}
   - component: {fileID: 859939368}
-  - component: {fileID: 859939367}
   m_Layer: 5
   m_Name: counter
   m_TagString: Untagged
@@ -2270,20 +2277,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -7}
   m_SizeDelta: {x: 171.59, y: 113.9}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &859939367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859939365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453f5c15bd7b5734cae4cfe25eeaf1cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _counterText: {fileID: 859939368}
-  _counter: {fileID: 1961011121}
 --- !u!114 &859939368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3161,7 +3154,6 @@ GameObject:
   - component: {fileID: 1385209244}
   - component: {fileID: 1385209247}
   - component: {fileID: 1385209246}
-  - component: {fileID: 1385209245}
   m_Layer: 5
   m_Name: counter
   m_TagString: Untagged
@@ -3188,20 +3180,6 @@ RectTransform:
   m_AnchoredPosition: {x: 16, y: 9}
   m_SizeDelta: {x: 171.59, y: 113.9}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1385209245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1385209243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453f5c15bd7b5734cae4cfe25eeaf1cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _counterText: {fileID: 1385209246}
-  _counter: {fileID: 1961011121}
 --- !u!114 &1385209246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3425,11 +3403,12 @@ RectTransform:
   - {fileID: 275389600}
   - {fileID: 1820216679}
   - {fileID: 224098512}
+  - {fileID: 1817669663}
   m_Father: {fileID: 1277965915}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -499.9925, y: 344.63}
+  m_AnchoredPosition: {x: -499.99243, y: 344.63}
   m_SizeDelta: {x: -1000.02, y: -689.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471688228
@@ -3639,6 +3618,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452597bae2bd7874d804c35bbb33b1ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1817669662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1817669663}
+  - component: {fileID: 1817669664}
+  m_Layer: 5
+  m_Name: Bomb Counter Displayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1817669663
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817669662}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1471688227}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1817669664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817669662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453f5c15bd7b5734cae4cfe25eeaf1cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnedObjectsText: {fileID: 132482349}
+  _createdObjectsText: {fileID: 1385209246}
+  _activeObjectsText: {fileID: 859939368}
+  _counter: {fileID: 1961011121}
 --- !u!1 &1820216678
 GameObject:
   m_ObjectHideFlags: 0
@@ -3753,7 +3784,6 @@ GameObject:
   - component: {fileID: 1874198840}
   - component: {fileID: 1874198843}
   - component: {fileID: 1874198842}
-  - component: {fileID: 1874198841}
   m_Layer: 5
   m_Name: counter
   m_TagString: Untagged
@@ -3780,20 +3810,6 @@ RectTransform:
   m_AnchoredPosition: {x: -359, y: -20}
   m_SizeDelta: {x: 171.59, y: 113.9}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1874198841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1874198839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c66a05e45684f848bd86ece3567e9be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _counterText: {fileID: 1874198842}
-  _counter: {fileID: 1910783479}
 --- !u!114 &1874198842
 MonoBehaviour:
   m_ObjectHideFlags: 0

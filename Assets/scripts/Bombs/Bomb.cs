@@ -1,6 +1,4 @@
-using NUnit.Framework;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,48 +6,25 @@ using UnityEngine;
 [RequireComponent(typeof(Renderer))]
 public class Bomb : MonoBehaviour
 {
+    [SerializeField] private Detonator _detonator;
+
     [SerializeField] private float _explotionForce;
     [SerializeField] private float _explotionRadius;
 
-    private float _explotionDelay;
+    public float ExplotionDelay { get; private set; }
 
     private float _minExplotionDelay = 2f;
     private float _maxExplotionDelay = 5f;
 
-    private Renderer _renderer;
+    public Renderer Renderer { get; private set; }  
 
     public event Action<Bomb> BombExploded;
 
     private void Awake()
     {
-        _explotionDelay = UnityEngine.Random.Range(_minExplotionDelay, _maxExplotionDelay);
+        ExplotionDelay = UnityEngine.Random.Range(_minExplotionDelay, _maxExplotionDelay);
 
-        _renderer = GetComponent<Renderer>();
-    }
-
-    public void Detonate()
-    {
-        StartCoroutine(ExecuteExplotion());
-    }
-
-    private IEnumerator ExecuteExplotion()
-    {
-        Color currentColor = _renderer.material.color;
-
-        while(currentColor.a > 0)
-        {
-            currentColor.a = Mathf.MoveTowards(currentColor.a, 0, Time.deltaTime / _explotionDelay);
-            _renderer.material.color = currentColor;
-
-            yield return null;
-        }
-
-        foreach(Collider collider in FindExplodableObjects())
-        {
-            collider.GetComponent<Rigidbody>().AddExplosionForce(_explotionForce, transform.position, _explotionRadius, 0f , ForceMode.Impulse);
-        }
-
-        BombExploded?.Invoke(this);
+        Renderer = GetComponent<Renderer>();
     }
 
     private List<Collider> FindExplodableObjects()
@@ -67,12 +42,17 @@ public class Bomb : MonoBehaviour
         return explodableObjects;
     }
 
-    public void ResetAlpha()
+    public void Explode()
     {
-        Color currentColor = _renderer.material.color;
+        Color currentColor = Renderer.material.color;
 
-        currentColor.a = 1f;
+        _detonator.DetonateBomb();
 
-        _renderer.material.color = currentColor;
+        foreach (Collider collider in FindExplodableObjects())
+        {
+            collider.GetComponent<Rigidbody>().AddExplosionForce(_explotionForce, transform.position, _explotionRadius, 0f, ForceMode.Impulse);
+        }
+
+        BombExploded?.Invoke(this);
     }
 }
