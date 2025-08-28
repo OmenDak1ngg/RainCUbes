@@ -24,7 +24,7 @@ public class BombSpawner : Spawner<Bomb>
 
         Bomb gettedBomb = Pool.Get();
 
-        gettedBomb.Explode();
+        gettedBomb.ExecuteDetonation();
 
         gettedBomb.transform.position = position;
     }

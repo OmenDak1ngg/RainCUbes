@@ -522,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e505e11f619e2be4fb5ff7912a30427a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 7066051674456209976, guid: 0b421d178eb16314eba58e03d099b98f, type: 3}
+  _prefab: {fileID: 4633320619991990911, guid: 0b421d178eb16314eba58e03d099b98f, type: 3}
   _spawnDelay: 1
   _spawnArea: {fileID: 462641951}
 --- !u!1 &108241748
@@ -3308,7 +3308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa95e68da3fb13541ad9051498b7c082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 9093748486547256085, guid: 423f8b452c8741a4785df2c35cbb7b60, type: 3}
+  _prefab: {fileID: 4905868265015572036, guid: 423f8b452c8741a4785df2c35cbb7b60, type: 3}
   _cubeSpawner: {fileID: 66056467}
 --- !u!4 &1390224255
 Transform:

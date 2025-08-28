@@ -44,15 +44,18 @@ public class Bomb : MonoBehaviour
 
     public void Explode()
     {
-        Color currentColor = Renderer.material.color;
-
-        _detonator.DetonateBomb();
-
         foreach (Collider collider in FindExplodableObjects())
         {
             collider.GetComponent<Rigidbody>().AddExplosionForce(_explotionForce, transform.position, _explotionRadius, 0f, ForceMode.Impulse);
         }
 
         BombExploded?.Invoke(this);
+    }
+
+    public void ExecuteDetonation()
+    {
+        Color currentColor = Renderer.material.color;
+
+        _detonator.DetonateBomb();
     }
 }

@@ -12,8 +12,6 @@ public class Detonator : MonoBehaviour
     private void Awake()
     {
         _bomb = transform.parent.GetComponent<Bomb>();
-        if (_bomb == null) Debug.Log("NOBIBMBA");
-        Debug.Log(_bomb.name);
         _explotionDelay = new WaitForSeconds(_bomb.ExplotionDelay);
     }
 
