@@ -2,11 +2,19 @@ using System;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class Spawner<T> : MonoBehaviour where T : MonoBehaviour
+public class ExplodableObjectsSpawner<T> : MonoBehaviour where T : ExplodableObject
 {
     [SerializeField] private T _prefab;
+    [SerializeField] private ColorChanger _colorChanger;
 
     protected ObjectPool<T> Pool;
+
+    [HideInInspector]
+    public int CountOfSpawnedObjects;
+    [HideInInspector]
+    public int CountOfCreatedObjects;
+    [HideInInspector]
+    public int CountOfAtiveObjects;
 
     public event Action ObjectGetted;
     public event Action ObjectCreated;
@@ -14,6 +22,10 @@ public class Spawner<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void Start()
     {
+        CountOfAtiveObjects = 0;
+        CountOfCreatedObjects = 0;
+        CountOfSpawnedObjects = 0;
+
         Pool = new ObjectPool<T>(
             createFunc: () => OnInstantiateObject(),
             actionOnGet:(T poolObject) => OnObjectGet(poolObject),
@@ -25,6 +37,10 @@ public class Spawner<T> : MonoBehaviour where T : MonoBehaviour
     protected virtual T OnInstantiateObject()
     {
         T newObject = Instantiate(_prefab);
+
+        newObject.SetColorChanger( _colorChanger);
+
+        CountOfCreatedObjects += 1;
         ObjectCreated?.Invoke();
 
         return newObject;
@@ -32,12 +48,17 @@ public class Spawner<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void  OnObjectGet(T poolObject)
     {
+        CountOfAtiveObjects += 1;
+        CountOfSpawnedObjects += 1;
+
         ObjectGetted?.Invoke();
         poolObject.gameObject.SetActive(true);
     }
 
     protected virtual void OnObjectRelease(T poolObject)
     {
+        CountOfAtiveObjects -= 1;
+
         poolObject.gameObject.SetActive(false);
 
         ObjectReleased?.Invoke();

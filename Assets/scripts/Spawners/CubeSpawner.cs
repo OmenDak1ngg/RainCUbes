@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class CubeSpawner : Spawner<Cube>
+public class CubeSpawner : ExplodableObjectsSpawner<Cube>
 {
     [SerializeField] private float _spawnDelay = 1f;
 

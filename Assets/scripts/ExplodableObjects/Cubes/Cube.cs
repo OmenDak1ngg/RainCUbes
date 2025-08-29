@@ -4,24 +4,21 @@ using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
 [RequireComponent(typeof(Rigidbody))]
-public class Cube : MonoBehaviour
+public class Cube : ExplodableObject
 {
     [SerializeField] private float _minDelay;
     [SerializeField] private float _maxDelay;
-    [SerializeField] private CubeColorChanger _colorChanger;
-
-    public event Action<Cube> ReachedFloor;
-
-    public Renderer Renderer { get; private set; }
-    public Rigidbody Rigidbody { get; private set; }
+    
 
     private float _delay;
     private bool _isBumped;
 
-    private void Awake()
+    public event Action<Cube> ReachedFloor;
+
+    protected override void Awake()
     {
-        Rigidbody = GetComponent<Rigidbody>();
-        Renderer = GetComponent<Renderer>();
+        base.Awake();
+
         _isBumped = false;
         _delay = UnityEngine.Random.Range(_minDelay, _maxDelay);
     }
@@ -54,11 +51,11 @@ public class Cube : MonoBehaviour
         if (_isBumped)
             yield break;
 
-        _colorChanger.SetRandomMaterial();
+        ColorChanger.SetRandomMaterial(this.Renderer);
         
         yield return new WaitForSeconds(_delay);
         
         ReachedFloor?.Invoke(this);
-        _colorChanger.ResetMaterial();
+        ColorChanger.ResetMaterial(this.Renderer);
     }
 }

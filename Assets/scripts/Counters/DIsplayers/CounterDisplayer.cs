@@ -1,34 +1,50 @@
 using TMPro;
 using UnityEngine;
 
-public class CounterDisplayer<T> : MonoBehaviour where T : MonoBehaviour
+public class CounterDisplayer<T> : MonoBehaviour where T : ExplodableObject
 {
 
     [SerializeField] public TextMeshProUGUI _spawnedObjectsText;
     [SerializeField] public TextMeshProUGUI _createdObjectsText;
     [SerializeField] public TextMeshProUGUI _activeObjectsText;
 
-    [SerializeField] private Counter<T> _counter;
+    [SerializeField] private ExplodableObjectsSpawner<T> _spawner;
 
     private void OnEnable()
     {
-        _counter.CountUpdated += UpdateCounter;
+        _spawner.ObjectCreated += UpdateCreatedCounter;
+        _spawner.ObjectGetted += UpdateSpawnedCounter;
+        _spawner.ObjectGetted += UpdateActiveCounter;
+        _spawner.ObjectReleased += UpdateActiveCounter;
     }
 
     private void OnDisable()
     {
-        _counter.CountUpdated -= UpdateCounter;
+        _spawner.ObjectCreated -= UpdateCreatedCounter;
+        _spawner.ObjectGetted -= UpdateSpawnedCounter;
+        _spawner.ObjectGetted -= UpdateActiveCounter;
+        _spawner.ObjectReleased -= UpdateActiveCounter;
     }
 
     private void Awake()
     {
-        UpdateCounter();
+        UpdateActiveCounter();
+        UpdateCreatedCounter();
+        UpdateSpawnedCounter();
     }
 
-    private void UpdateCounter()
+    private void UpdateSpawnedCounter()
     {
-        _spawnedObjectsText.text = $"{_counter.CountOfSpawnedObjects}";
-        _createdObjectsText.text = $"{_counter.CountOfCreatedObjects}";
-        _activeObjectsText.text = $"{_counter.CountOfActiveObjects}";
+        _spawnedObjectsText.text = $"{_spawner.CountOfSpawnedObjects}";
+    }
+
+    private void UpdateCreatedCounter()
+    {
+        _createdObjectsText.text = $"{_spawner.CountOfCreatedObjects}";
+    }
+
+    private void UpdateActiveCounter()
+    {
+        _activeObjectsText.text = $"{_spawner.CountOfAtiveObjects}";
     }
 }

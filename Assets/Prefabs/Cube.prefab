@@ -1,58 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1380265528608045631
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6226279334676487897}
-  - component: {fileID: 2429465267110236162}
-  m_Layer: 0
-  m_Name: ColorChanger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6226279334676487897
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380265528608045631}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2206510554469426872}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2429465267110236162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380265528608045631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb0839e93f7dc44f8fae0959125a4f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _materials:
-  - {fileID: 2100000, guid: e57e95f9eeb76ff4dbd2a1278d0951aa, type: 2}
-  - {fileID: 2100000, guid: 89b0ce2c79f3e794093f82e264838756, type: 2}
-  - {fileID: 2100000, guid: b7ee28bc0afe2a9468a1bb9c701078b5, type: 2}
-  - {fileID: 2100000, guid: 208e5c5452491b344a96fdaf81617407, type: 2}
-  - {fileID: 2100000, guid: 58e125d549c70664baa50ac9ce709cf0, type: 2}
-  - {fileID: 2100000, guid: e379ee3fd7995744ab884d5c3afb0dd6, type: 2}
-  _baseMaterial: {fileID: 2100000, guid: 08157753da20da94e8367230136692d7, type: 2}
-  cube: {fileID: 4633320619991990911}
 --- !u!1 &3040855700210623467
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,8 +33,7 @@ Transform:
   m_LocalPosition: {x: -15.345096, y: -2.378817, z: 0.070852734}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6226279334676487897}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1197661692876706549
@@ -205,4 +151,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minDelay: 2
   _maxDelay: 5
-  _colorChanger: {fileID: 2429465267110236162}

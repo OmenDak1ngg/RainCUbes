@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BombSpawner : Spawner<Bomb>
+public class BombSpawner : ExplodableObjectsSpawner<Bomb>
 {
     [SerializeField] private CubeSpawner _cubeSpawner;
 
@@ -23,8 +23,7 @@ public class BombSpawner : Spawner<Bomb>
     {
 
         Bomb gettedBomb = Pool.Get();
-
-        gettedBomb.ExecuteDetonation();
+        gettedBomb.Detonator.DetonateBomb();
 
         gettedBomb.transform.position = position;
     }
