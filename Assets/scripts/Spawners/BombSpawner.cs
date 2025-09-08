@@ -3,6 +3,7 @@ using UnityEngine;
 public class BombSpawner : ExplodableObjectsSpawner<Bomb>
 {
     [SerializeField] private CubeSpawner _cubeSpawner;
+    [SerializeField] private ExplodableObjectsFounder _explodableObjectsFounder;
 
     private void OnEnable()
     {
@@ -33,6 +34,8 @@ public class BombSpawner : ExplodableObjectsSpawner<Bomb>
         Bomb newBomb = base.OnInstantiateObject();
 
         newBomb.BombExploded += ReleaseObject;
+
+        newBomb.SetExplodableObjectsFounder(_explodableObjectsFounder);
 
         return newBomb;
     }

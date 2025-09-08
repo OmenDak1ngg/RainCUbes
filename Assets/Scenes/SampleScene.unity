@@ -523,6 +523,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 4633320619991990911, guid: 0b421d178eb16314eba58e03d099b98f, type: 3}
+  _colorChanger: {fileID: 113946642}
+  CountOfSpawnedObjects: 0
+  CountOfCreatedObjects: 0
+  CountOfAtiveObjects: 0
   _spawnDelay: 1
   _spawnArea: {fileID: 462641951}
 --- !u!1 &108241748
@@ -598,14 +602,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7bc9c86247c844885bcaa8ac370c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Cubematerials:
+  _allMaterials:
   - {fileID: 2100000, guid: e57e95f9eeb76ff4dbd2a1278d0951aa, type: 2}
   - {fileID: 2100000, guid: 89b0ce2c79f3e794093f82e264838756, type: 2}
   - {fileID: 2100000, guid: b7ee28bc0afe2a9468a1bb9c701078b5, type: 2}
   - {fileID: 2100000, guid: 208e5c5452491b344a96fdaf81617407, type: 2}
   - {fileID: 2100000, guid: 58e125d549c70664baa50ac9ce709cf0, type: 2}
   - {fileID: 2100000, guid: e379ee3fd7995744ab884d5c3afb0dd6, type: 2}
-  _baseCubeMaterial: {fileID: 2100000, guid: 08157753da20da94e8367230136692d7, type: 2}
+  _baseMaterial: {fileID: 2100000, guid: 08157753da20da94e8367230136692d7, type: 2}
 --- !u!4 &113946643
 Transform:
   m_ObjectHideFlags: 0
@@ -1972,7 +1976,7 @@ MonoBehaviour:
   _spawnedObjectsText: {fileID: 763342405}
   _createdObjectsText: {fileID: 1874198842}
   _activeObjectsText: {fileID: 44444093}
-  _counter: {fileID: 1910783479}
+  _spawner: {fileID: 66056467}
 --- !u!1 &730762014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2864,7 +2868,7 @@ GameObject:
   - component: {fileID: 1054203532}
   - component: {fileID: 1054203531}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ExplodableObjectsFounder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3405,7 +3409,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 4905868265015572036, guid: 423f8b452c8741a4785df2c35cbb7b60, type: 3}
+  _colorChanger: {fileID: 113946642}
+  CountOfSpawnedObjects: 0
+  CountOfCreatedObjects: 0
+  CountOfAtiveObjects: 0
   _cubeSpawner: {fileID: 66056467}
+  _explodableObjectsFounder: {fileID: 1054203531}
 --- !u!4 &1390224255
 Transform:
   m_ObjectHideFlags: 0
@@ -3765,7 +3774,7 @@ MonoBehaviour:
   _spawnedObjectsText: {fileID: 132482349}
   _createdObjectsText: {fileID: 1385209246}
   _activeObjectsText: {fileID: 859939368}
-  _counter: {fileID: 1961011121}
+  _spawner: {fileID: 1390224254}
 --- !u!1 &1820216678
 GameObject:
   m_ObjectHideFlags: 0
@@ -4005,51 +4014,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874198839}
   m_CullTransparentMesh: 1
---- !u!1 &1910783478
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1910783480}
-  - component: {fileID: 1910783479}
-  m_Layer: 0
-  m_Name: CubeCounter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1910783479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910783478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef348988729376f47b6bbeca63e35fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawner: {fileID: 66056467}
---- !u!4 &1910783480
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910783478}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.0917783, y: 2.7917912, z: -0.0049542463}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1918154189
 GameObject:
   m_ObjectHideFlags: 0
@@ -4224,51 +4188,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953223644}
   m_CullTransparentMesh: 1
---- !u!1 &1961011120
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1961011122}
-  - component: {fileID: 1961011121}
-  m_Layer: 0
-  m_Name: BombCounter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1961011121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1961011120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b462681b37325ba42a4737af62d53871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawner: {fileID: 1390224254}
---- !u!4 &1961011122
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1961011120}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.0917783, y: 2.7917912, z: -0.0049542463}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1998591041
 GameObject:
   m_ObjectHideFlags: 0
@@ -4413,7 +4332,5 @@ SceneRoots:
   - {fileID: 1277965915}
   - {fileID: 1390224255}
   - {fileID: 66056466}
-  - {fileID: 1961011122}
-  - {fileID: 1910783480}
   - {fileID: 113946643}
   - {fileID: 1054203532}

@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -16,10 +15,6 @@ public class Bomb : ExplodableObject
     
     private float _minExplotionDelay = 2f;
     private float _maxExplotionDelay = 5f;
-
-    private float _delay;
-
-    private WaitForSeconds _delayTime;
 
     public Detonator Detonator => _detonator;
     public float ExplotionDelay { get; private set; }
@@ -40,20 +35,12 @@ public class Bomb : ExplodableObject
     {
         base.Awake();
 
-        ColorChanger = FindFirstObjectByType<ColorChanger>();
-        _explodedObjectsFounder = FindFirstObjectByType<ExplodableObjectsFounder>();
-
-        _delay = UnityEngine.Random.Range(_minExplotionDelay, _maxExplotionDelay);
-        _delayTime = new WaitForSeconds(_delay);
-
         ExplotionDelay = UnityEngine.Random.Range(_minExplotionDelay, _maxExplotionDelay);
     }
 
     private IEnumerator Explode()
     {
-        ColorChanger.ChangeAlphaToZero(this);
-
-        yield return _delayTime;
+        yield return ColorChanger.ExecuteChangingAlphaToZero(Renderer, ExplotionDelay);
 
         foreach (Collider collider in _explodedObjectsFounder.FoundExplodableObjects(_explotionRadius, transform.position))
         {
@@ -66,5 +53,10 @@ public class Bomb : ExplodableObject
     public void ExecuteExplotion()
     {
         StartCoroutine(Explode());
+    }
+
+    public void SetExplodableObjectsFounder(ExplodableObjectsFounder explodableObjectsFounder)
+    {
+        _explodedObjectsFounder = explodableObjectsFounder;
     }
 }

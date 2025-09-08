@@ -9,12 +9,9 @@ public class ExplodableObjectsSpawner<T> : MonoBehaviour where T : ExplodableObj
 
     protected ObjectPool<T> Pool;
 
-    [HideInInspector]
-    public int CountOfSpawnedObjects;
-    [HideInInspector]
-    public int CountOfCreatedObjects;
-    [HideInInspector]
-    public int CountOfAtiveObjects;
+    public int CountOfSpawnedObjects { get;private set; }
+    public int CountOfCreatedObjects { get;private set; }
+    public int CountOfAtiveObjects { get;private set; }
 
     public event Action ObjectGetted;
     public event Action ObjectCreated;

@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class ColorChanger : MonoBehaviour
 {
-    [SerializeField] private Material[] _Cubematerials;
-    [SerializeField] private Material _baseCubeMaterial;
+    [SerializeField] private Material[] _allMaterials;
+    [SerializeField] private Material _baseMaterial;
 
-    private IEnumerator ExecuteChangingBombAlphaToZero(Bomb bomb)
+    public IEnumerator ExecuteChangingAlphaToZero(Renderer renederer, float changingDelay)
     {
-        Color currentColor = bomb.Renderer.material.color;
+        Color currentColor = renederer.material.color;
 
         while (currentColor.a > 0)
         {
-            currentColor.a = Mathf.MoveTowards(currentColor.a, 0, Time.deltaTime / bomb.ExplotionDelay);
-            bomb.Renderer.material.color = currentColor;
+            currentColor.a = Mathf.MoveTowards(currentColor.a, 0, Time.deltaTime / changingDelay);
+            renederer.material.color = currentColor;
 
             yield return null;
         }
@@ -21,19 +21,14 @@ public class ColorChanger : MonoBehaviour
 
     public void SetRandomMaterial(Renderer renderer)
     {
-        int randomIndex = Random.Range(0, _Cubematerials.Length);
+        int randomIndex = Random.Range(0, _allMaterials.Length);
 
-        renderer.material = _Cubematerials[randomIndex];
+        renderer.material = _allMaterials[randomIndex];
     }
 
     public void ResetMaterial(Renderer renderer)
     {
-        renderer.material = _baseCubeMaterial;
-    }
-
-    public void ChangeAlphaToZero(Bomb bomb)
-    {
-        StartCoroutine(ExecuteChangingBombAlphaToZero(bomb));
+        renderer.material = _baseMaterial;
     }
 
     public void ResetAlpha(Renderer renderer)
